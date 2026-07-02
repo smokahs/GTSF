@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "gtsf:item/primordial_mortar_handle",
+    "layer1": "gtsf:item/primordial_mortar_head"
+  }
+}

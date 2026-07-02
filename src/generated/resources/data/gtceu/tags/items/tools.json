@@ -1,0 +1,15 @@
+{
+  "values": [
+    "gtsf:primordial_hard_hammer",
+    "gtsf:primordial_soft_mallet",
+    "gtsf:primordial_wrench",
+    "gtsf:primordial_crowbar",
+    "gtsf:primordial_screwdriver",
+    "gtsf:primordial_mortar",
+    "gtsf:primordial_wire_cutter",
+    "gtsf:primordial_plunger",
+    "gtsf:primordial_saw",
+    "gtsf:primordial_file",
+    "gtsf:primordial_knife"
+  ]
+}

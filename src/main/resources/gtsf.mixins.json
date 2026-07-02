@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "io.github.smokahs.gtsf.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "refmap": "mixins.gtsf.refmap.json",
+  "mixins": [
+    "GTToolTypeMixin",
+    "ToolHelperMixin"
+  ],
+  "client": [
+    "client.ItemRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

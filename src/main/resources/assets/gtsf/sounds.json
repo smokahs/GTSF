@@ -1,0 +1,11 @@
+{
+  "wrench_use": {
+    "sounds": [
+      {
+        "type": "file",
+        "name": "gtsf:wrench_use"
+      }
+    ],
+    "subtitle": "gtsf.subtitle.wrench_use"
+  }
+}
