@@ -17,6 +17,7 @@ import net.minecraft.locale.Language;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
@@ -44,7 +45,6 @@ public class PrimordialToolItem extends GTToolItem implements PrimordialShaderIt
     private static final String INFINITY_SYMBOL = "∞";
     private static final String OMEGA_SYMBOL = "Ω";
     private static final float INSTA_MINING_SPEED = 1_000_000.0F;
-    private static final float PRECISION_MINING_SPEED = 8.0F;
     private final Set<GTToolType> primordialToolClasses;
     private final Set<String> primordialToolClassNames;
 
@@ -84,13 +84,23 @@ public class PrimordialToolItem extends GTToolItem implements PrimordialShaderIt
 
     private static void applyRelocateMinedBlocks(ItemStack stack) {
         ToolHelper.getBehaviorsTag(stack).putBoolean(ToolHelper.RELOCATE_MINED_BLOCKS_KEY,
-                GTSFConfig.get().tools.relocateMinedBlocks);
+                GTSFConfig.get().tools.general.relocateMinedBlocks);
     }
 
     @Override
     public boolean onBlockStartBreak(ItemStack stack, BlockPos pos, Player player) {
         applyRelocateMinedBlocks(stack);
         return super.onBlockStartBreak(stack, pos, player);
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
+        // inf durability
+        CompoundTag tag = stack.getOrCreateTag();
+        if (!tag.getBoolean(ToolHelper.UNBREAKABLE_KEY)) {
+            tag.putBoolean(ToolHelper.UNBREAKABLE_KEY, true);
+        }
+        super.inventoryTick(stack, level, entity, slotId, isSelected);
     }
 
     @Override
@@ -115,7 +125,8 @@ public class PrimordialToolItem extends GTToolItem implements PrimordialShaderIt
 
     @Override
     public float getTotalToolSpeed(ItemStack stack) {
-        return getMiningMode(stack).toolSpeed;
+        return getMiningMode(stack) == MiningMode.INSTA ? INSTA_MINING_SPEED :
+                (float) GTSFConfig.get().tools.general.precisionMiningSpeed;
     }
 
     @Override
@@ -251,18 +262,16 @@ public class PrimordialToolItem extends GTToolItem implements PrimordialShaderIt
 
     public enum MiningMode {
 
-        INSTA("item.gtsf.tool.mode.insta_mine", INSTA_MINING_SPEED, ChatFormatting.LIGHT_PURPLE),
-        PRECISION("item.gtsf.tool.mode.precision_mine", PRECISION_MINING_SPEED, ChatFormatting.AQUA);
+        INSTA("item.gtsf.tool.mode.insta_mine", ChatFormatting.LIGHT_PURPLE),
+        PRECISION("item.gtsf.tool.mode.precision_mine", ChatFormatting.AQUA);
 
         public static final MiningMode[] VALUES = values();
 
         private final String langKey;
-        private final float toolSpeed;
         private final ChatFormatting color;
 
-        MiningMode(String langKey, float toolSpeed, ChatFormatting color) {
+        MiningMode(String langKey, ChatFormatting color) {
             this.langKey = langKey;
-            this.toolSpeed = toolSpeed;
             this.color = color;
         }
 

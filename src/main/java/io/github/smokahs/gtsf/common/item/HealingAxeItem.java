@@ -31,6 +31,7 @@ import io.github.smokahs.gtsf.client.model.item.CosmicToolBakedModel;
 import io.github.smokahs.gtsf.client.model.item.PrimordialShaderItem;
 import io.github.smokahs.gtsf.client.shader.PrimordialWindowShaders;
 import io.github.smokahs.gtsf.common.data.GTSFToolTiers;
+import io.github.smokahs.gtsf.config.GTSFConfig;
 import org.jetbrains.annotations.Nullable;
 
 import java.lang.reflect.Method;
@@ -38,28 +39,34 @@ import java.util.List;
 import java.util.UUID;
 
 public class HealingAxeItem extends AxeItem implements PrimordialShaderItem {
+
     private static final Tier HEALING_AXE_TIER = new Tier() {
 
         @Override
         public int getUses() {
             return Tiers.NETHERITE.getUses();
         }
+
         @Override
         public float getSpeed() {
             return 8.0F;
         }
+
         @Override
         public float getAttackDamageBonus() {
             return Tiers.NETHERITE.getAttackDamageBonus();
         }
+
         @Override
         public int getLevel() {
             return GTSFToolTiers.getGodforgedTier().getLevel();
         }
+
         @Override
         public int getEnchantmentValue() {
             return Tiers.NETHERITE.getEnchantmentValue();
         }
+
         @Override
         public net.minecraft.world.item.crafting.Ingredient getRepairIngredient() {
             return Tiers.NETHERITE.getRepairIngredient();
@@ -77,6 +84,7 @@ public class HealingAxeItem extends AxeItem implements PrimordialShaderItem {
     private static final int HEAD_OVERLAY_COLOR = 0x4DFFFFFF;
     private static final Method START_CONVERTING = ObfuscationReflectionHelper.findMethod(
             ZombieVillager.class, "m_34383_", UUID.class, int.class);
+
     public HealingAxeItem(Properties properties) {
         super(HEALING_AXE_TIER, 5.0F, -2.5F, properties);
         if (GTCEu.isClientSide()) {
@@ -98,6 +106,7 @@ public class HealingAxeItem extends AxeItem implements PrimordialShaderItem {
         }
         return true;
     }
+
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target,
                                                   InteractionHand hand) {
@@ -114,6 +123,7 @@ public class HealingAxeItem extends AxeItem implements PrimordialShaderItem {
         }
         return InteractionResult.PASS;
     }
+
     private static void spawnHealParticles(LivingEntity target) {
         if (target.level() instanceof ServerLevel serverLevel) {
             serverLevel.sendParticles(ParticleTypes.INSTANT_EFFECT,
@@ -135,10 +145,12 @@ public class HealingAxeItem extends AxeItem implements PrimordialShaderItem {
     public boolean isDamageable(ItemStack stack) {
         return false;
     }
+
     @Override
     public boolean isEnchantable(ItemStack stack) {
         return false;
     }
+
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltipComponents,
                                 TooltipFlag isAdvanced) {
@@ -163,12 +175,16 @@ public class HealingAxeItem extends AxeItem implements PrimordialShaderItem {
 
     private void initClient() {
         ModelUtils.registerBakeEventListener(false, event -> {
+            if (!GTSFConfig.get().tools.general.primordialShader) {
+                return;
+            }
             ResourceLocation itemId = StarFoundry.id("primordial_healing_axe");
             wrapModel(event, itemId.withPrefix("item/"));
             wrapModel(event, new ModelResourceLocation(itemId, "inventory"));
             PrimordialWindowShaders.updateCosmicUvs();
         });
     }
+
     private static void wrapModel(ModelEvent.ModifyBakingResult event, ResourceLocation modelLocation) {
         BakedModel model = event.getModels().get(modelLocation);
         if (model != null && !(model instanceof CosmicToolBakedModel)) {

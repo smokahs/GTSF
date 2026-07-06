@@ -88,19 +88,19 @@ public final class GTSFPrimordialTools {
     }
 
     private static boolean isToolEnabled(String id) {
-        var tools = GTSFConfig.get().tools;
+        var items = GTSFConfig.get().tools.items;
         return switch (id) {
-            case "primordial_hard_hammer" -> tools.primordialHardHammer;
-            case "primordial_soft_mallet" -> tools.primordialSoftMallet;
-            case "primordial_wrench" -> tools.primordialWrench;
-            case "primordial_crowbar" -> tools.primordialCrowbar;
-            case "primordial_screwdriver" -> tools.primordialScrewdriver;
-            case "primordial_mortar" -> tools.primordialMortar;
-            case "primordial_wire_cutter" -> tools.primordialWireCutter;
-            case "primordial_plunger" -> tools.primordialPlunger;
-            case "primordial_saw" -> tools.primordialSaw;
-            case "primordial_file" -> tools.primordialFile;
-            case "primordial_knife" -> tools.primordialKnife;
+            case "primordial_hard_hammer" -> items.primordialHardHammer;
+            case "primordial_soft_mallet" -> items.primordialSoftMallet;
+            case "primordial_wrench" -> items.primordialWrench;
+            case "primordial_crowbar" -> items.primordialCrowbar;
+            case "primordial_screwdriver" -> items.primordialScrewdriver;
+            case "primordial_mortar" -> items.primordialMortar;
+            case "primordial_wire_cutter" -> items.primordialWireCutter;
+            case "primordial_plunger" -> items.primordialPlunger;
+            case "primordial_saw" -> items.primordialSaw;
+            case "primordial_file" -> items.primordialFile;
+            case "primordial_knife" -> items.primordialKnife;
             default -> true;
         };
     }
@@ -130,7 +130,11 @@ public final class GTSFPrimordialTools {
         StarFoundry.REGISTRATE.addRawLang("item.gtsf.tool.tooltip.mode_switch_hint",
                 "Crouch + Scroll to change mining mode");
         StarFoundry.REGISTRATE.addRawLang("config.gtsf.option.tools", "Tools");
+        StarFoundry.REGISTRATE.addRawLang("config.gtsf.option.general", "General");
+        StarFoundry.REGISTRATE.addRawLang("config.gtsf.option.items", "Items");
         StarFoundry.REGISTRATE.addRawLang("config.gtsf.option.relocateMinedBlocks", "Relocate Mined Blocks");
+        StarFoundry.REGISTRATE.addRawLang("config.gtsf.option.precisionMiningSpeed", "Precision Mining Speed");
+        StarFoundry.REGISTRATE.addRawLang("config.gtsf.option.primordialShader", "Primordial Shader");
         StarFoundry.REGISTRATE.addRawLang("config.gtsf.option.primordialHardHammer", "Primordial Hard Hammer");
         StarFoundry.REGISTRATE.addRawLang("config.gtsf.option.primordialSoftMallet", "Primordial Soft Mallet");
         StarFoundry.REGISTRATE.addRawLang("config.gtsf.option.primordialWrench", "Primordial Wrench");

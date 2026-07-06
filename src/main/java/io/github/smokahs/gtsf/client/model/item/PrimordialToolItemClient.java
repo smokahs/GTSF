@@ -12,6 +12,7 @@ import io.github.smokahs.gtsf.StarFoundry;
 import io.github.smokahs.gtsf.client.shader.PrimordialWindowShaders;
 import io.github.smokahs.gtsf.common.data.GTSFPrimordialTools;
 import io.github.smokahs.gtsf.common.item.tool.PrimordialToolItem;
+import io.github.smokahs.gtsf.config.GTSFConfig;
 
 import java.util.List;
 
@@ -25,6 +26,9 @@ public final class PrimordialToolItemClient {
         ResourceLocation maskTexture = toolType.modelLocation;
 
         ModelUtils.registerBakeEventListener(false, event -> {
+            if (!GTSFConfig.get().tools.general.primordialShader) {
+                return;
+            }
             ResourceLocation itemId = BuiltInRegistries.ITEM.getKey(item);
 
             if (GTSFPrimordialTools.isAvaritiaStyled(itemId.getPath())) {

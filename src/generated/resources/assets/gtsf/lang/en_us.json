@@ -1,4 +1,7 @@
 {
+  "config.gtsf.option.general": "General",
+  "config.gtsf.option.items": "Items",
+  "config.gtsf.option.precisionMiningSpeed": "Precision Mining Speed",
   "config.gtsf.option.primordialCrowbar": "Primordial Crowbar",
   "config.gtsf.option.primordialFile": "Primordial File",
   "config.gtsf.option.primordialHardHammer": "Primordial Hard Hammer",
@@ -8,6 +11,7 @@
   "config.gtsf.option.primordialPlunger": "Primordial Plunger",
   "config.gtsf.option.primordialSaw": "Primordial Saw",
   "config.gtsf.option.primordialScrewdriver": "Primordial Screwdriver",
+  "config.gtsf.option.primordialShader": "Primordial Shader",
   "config.gtsf.option.primordialSoftMallet": "Primordial Soft Mallet",
   "config.gtsf.option.primordialWireCutter": "Primordial Wire Cutters",
   "config.gtsf.option.primordialWrench": "Primordial Wrench",

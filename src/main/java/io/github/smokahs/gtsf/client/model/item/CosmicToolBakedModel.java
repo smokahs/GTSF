@@ -40,6 +40,7 @@ import java.util.List;
 import java.util.Map;
 
 public final class CosmicToolBakedModel extends BaseBakedModel implements PerspectiveItemModel {
+
     private static final ItemModelGenerator ITEM_MODEL_GENERATOR = new ItemModelGenerator();
     private static final FaceBakery FACE_BAKERY = new FaceBakery();
     private static final IQuadTransformer COSMIC_OFFSET = GTQuadTransformers.offset(0.0010F);
@@ -50,6 +51,7 @@ public final class CosmicToolBakedModel extends BaseBakedModel implements Perspe
     private final boolean solidHead;
     private final int headOverlayColor;
     private List<BakedQuad> staticQuads;
+
     public CosmicToolBakedModel(BakedModel wrapped, ResourceLocation handleTexture, ResourceLocation headTexture,
                                 boolean solidHead, int headOverlayColor) {
         this.wrapped = wrapped;
@@ -68,30 +70,37 @@ public final class CosmicToolBakedModel extends BaseBakedModel implements Perspe
         }
         return getStaticQuads();
     }
+
     @Override
     public boolean useAmbientOcclusion() {
         return wrapped.useAmbientOcclusion();
     }
+
     @Override
     public boolean isGui3d() {
         return wrapped.isGui3d();
     }
+
     @Override
     public boolean usesBlockLight() {
         return wrapped.usesBlockLight();
     }
+
     @Override
     public @NotNull TextureAtlasSprite getParticleIcon() {
         return wrapped.getParticleIcon();
     }
+
     @Override
     public @NotNull TextureAtlasSprite getParticleIcon(@NotNull ModelData data) {
         return wrapped.getParticleIcon(data);
     }
+
     @Override
     public @NotNull ItemOverrides getOverrides() {
         return wrapped.getOverrides();
     }
+
     @Override
     public @NotNull BakedModel applyTransform(@NotNull ItemDisplayContext displayContext,
                                               @NotNull PoseStack poseStack, boolean applyLeftHandTransform) {
@@ -130,7 +139,6 @@ public final class CosmicToolBakedModel extends BaseBakedModel implements Perspe
                                      MultiBufferSource buffer, int packedLight, int packedOverlay,
                                      RenderType renderType, @Nullable Integer argbColor,
                                      @Nullable IQuadTransformer transformer) {
-
         List<BakedQuad> quads = bakeItem(sprite, false);
         if (argbColor != null || transformer != null) {
             List<BakedQuad> transformed = new ArrayList<>(quads.size());
@@ -151,6 +159,7 @@ public final class CosmicToolBakedModel extends BaseBakedModel implements Perspe
         Minecraft.getInstance().getItemRenderer().renderQuadList(poseStack, consumer, quads, stack,
                 packedLight, packedOverlay);
     }
+
     private List<BakedQuad> getStaticQuads() {
         if (staticQuads == null) {
             Minecraft mc = Minecraft.getInstance();
@@ -164,6 +173,7 @@ public final class CosmicToolBakedModel extends BaseBakedModel implements Perspe
         }
         return staticQuads;
     }
+
     private void renderCosmic(ItemDisplayContext displayContext, PoseStack poseStack,
                               MultiBufferSource buffer, ItemStack stack, int packedLight, int packedOverlay,
                               TextureAtlasSprite headSprite) {
@@ -210,9 +220,11 @@ public final class CosmicToolBakedModel extends BaseBakedModel implements Perspe
         Minecraft.getInstance().getItemRenderer().renderQuadList(poseStack, consumer, quads, stack,
                 LightTexture.FULL_BRIGHT, packedOverlay);
     }
+
     private static List<BakedQuad> bakeItem(TextureAtlasSprite sprite) {
         return bakeItem(sprite, true);
     }
+
     private static List<BakedQuad> bakeItem(TextureAtlasSprite sprite, boolean shade) {
         List<BakedQuad> quads = new ArrayList<>();
         List<BlockElement> elements = ITEM_MODEL_GENERATOR.processFrames(-1, "layer0", sprite.contents());

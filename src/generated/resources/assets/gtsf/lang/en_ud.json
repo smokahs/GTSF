@@ -1,4 +1,7 @@
 {
+  "config.gtsf.option.general": "ןɐɹǝuǝ⅁",
+  "config.gtsf.option.items": "sɯǝʇI",
+  "config.gtsf.option.precisionMiningSpeed": "pǝǝdS buıuıW uoısıɔǝɹԀ",
   "config.gtsf.option.primordialCrowbar": "ɹɐqʍoɹƆ ןɐıpɹoɯıɹԀ",
   "config.gtsf.option.primordialFile": "ǝןıℲ ןɐıpɹoɯıɹԀ",
   "config.gtsf.option.primordialHardHammer": "ɹǝɯɯɐH pɹɐH ןɐıpɹoɯıɹԀ",
@@ -8,6 +11,7 @@
   "config.gtsf.option.primordialPlunger": "ɹǝbunןԀ ןɐıpɹoɯıɹԀ",
   "config.gtsf.option.primordialSaw": "ʍɐS ןɐıpɹoɯıɹԀ",
   "config.gtsf.option.primordialScrewdriver": "ɹǝʌıɹpʍǝɹɔS ןɐıpɹoɯıɹԀ",
+  "config.gtsf.option.primordialShader": "ɹǝpɐɥS ןɐıpɹoɯıɹԀ",
   "config.gtsf.option.primordialSoftMallet": "ʇǝןןɐW ʇɟoS ןɐıpɹoɯıɹԀ",
   "config.gtsf.option.primordialWireCutter": "sɹǝʇʇnƆ ǝɹıM ןɐıpɹoɯıɹԀ",
   "config.gtsf.option.primordialWrench": "ɥɔuǝɹM ןɐıpɹoɯıɹԀ",

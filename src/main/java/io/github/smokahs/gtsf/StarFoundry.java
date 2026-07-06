@@ -33,8 +33,7 @@ public class StarFoundry {
 
         try {
             GTRegistrate.class.getMethod("registerRegistrate").invoke(REGISTRATE);
-        } catch (NoSuchMethodException ignored) {
-        } catch (ReflectiveOperationException e) {
+        } catch (NoSuchMethodException ignored) {} catch (ReflectiveOperationException e) {
             throw new IllegalStateException("failed to init star foundry registrate", e);
         }
 
@@ -50,8 +49,7 @@ public class StarFoundry {
         event.enqueueWork(StarFoundry::applyWrenchUseSounds);
     }
 
-    private void clientSetup(FMLClientSetupEvent event) {
-    }
+    private void clientSetup(FMLClientSetupEvent event) {}
 
     private static void applyWrenchUseSounds() {
         GTToolType[] wrenches = { GTToolType.WRENCH, GTToolType.WRENCH_LV, GTToolType.WRENCH_HV, GTToolType.WRENCH_IV };

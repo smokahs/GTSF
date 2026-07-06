@@ -17,7 +17,7 @@ public final class GTSFItems {
     private GTSFItems() {}
 
     public static void init() {
-        if (!GTSFConfig.get().tools.primordialHealingAxe) {
+        if (!GTSFConfig.get().tools.items.primordialHealingAxe) {
             StarFoundry.LOGGER.info("Skipping registration of primordial_healing_axe (disabled in gtsf.yaml)");
             return;
         }

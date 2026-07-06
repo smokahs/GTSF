@@ -6,7 +6,6 @@ import io.github.smokahs.gtsf.StarFoundry;
 
 public final class GTSFSoundEntries {
 
-
     public static final SoundEntry WRENCH_USE_TOOL = StarFoundry.REGISTRATE.sound(StarFoundry.id("wrench_use")).build();
 
     private GTSFSoundEntries() {}

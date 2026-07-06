@@ -26,63 +26,73 @@ public class GTSFConfig {
     }
 
     @Configurable
-    @Configurable.Comment("Config options for Star Foundry tools")
+    @Configurable.Comment("Star Foundry tools")
     public ToolConfigs tools = new ToolConfigs();
 
     public static class ToolConfigs {
 
         @Configurable
-        @Configurable.Comment({ "Teleport blocks mined by Primordial tools directly into your inventory.",
-                "Applies on the next block broken, no restart needed.", "Default: true" })
+        @Configurable.Comment("Tool behavior")
+        public General general = new General();
+
+        @Configurable
+        @Configurable.Comment("Enable tools. Restart to apply.")
+        public Items items = new Items();
+    }
+
+    public static class General {
+
+        @Configurable
+        @Configurable.Comment({ "Mined blocks go to inventory.", "Default: true" })
         public boolean relocateMinedBlocks = true;
 
         @Configurable
-        @Configurable.Comment({ "Enable the Primordial Hard Hammer.",
-                "Disabling removes the item from the game; requires restart.", "Default: true" })
+        @Configurable.Comment({ "Precision mode mining speed.", "Default: 8" })
+        @Configurable.DecimalRange(min = 1.0, max = 100.0)
+        public double precisionMiningSpeed = 8.0;
+
+        @Configurable
+        @Configurable.Comment({ "Animated tool shader. Reload resources to apply.", "Default: true" })
+        public boolean primordialShader = true;
+    }
+
+    public static class Items {
+
+        @Configurable
+        @Configurable.Comment("Default: true")
         public boolean primordialHardHammer = true;
         @Configurable
-        @Configurable.Comment({ "Enable the Primordial Soft Mallet.",
-                "Disabling removes the item from the game; requires restart.", "Default: true" })
+        @Configurable.Comment("Default: true")
         public boolean primordialSoftMallet = true;
         @Configurable
-        @Configurable.Comment({ "Enable the Primordial Wrench.",
-                "Disabling removes the item from the game; requires restart.", "Default: true" })
+        @Configurable.Comment("Default: true")
         public boolean primordialWrench = true;
         @Configurable
-        @Configurable.Comment({ "Enable the Primordial Crowbar.",
-                "Disabling removes the item from the game; requires restart.", "Default: true" })
+        @Configurable.Comment("Default: true")
         public boolean primordialCrowbar = true;
         @Configurable
-        @Configurable.Comment({ "Enable the Primordial Screwdriver.",
-                "Disabling removes the item from the game; requires restart.", "Default: true" })
+        @Configurable.Comment("Default: true")
         public boolean primordialScrewdriver = true;
         @Configurable
-        @Configurable.Comment({ "Enable the Primordial Mortar.",
-                "Disabling removes the item from the game; requires restart.", "Default: true" })
+        @Configurable.Comment("Default: true")
         public boolean primordialMortar = true;
         @Configurable
-        @Configurable.Comment({ "Enable the Primordial Wire Cutters.",
-                "Disabling removes the item from the game; requires restart.", "Default: true" })
+        @Configurable.Comment("Default: true")
         public boolean primordialWireCutter = true;
         @Configurable
-        @Configurable.Comment({ "Enable the Primordial Plunger.",
-                "Disabling removes the item from the game; requires restart.", "Default: true" })
+        @Configurable.Comment("Default: true")
         public boolean primordialPlunger = true;
         @Configurable
-        @Configurable.Comment({ "Enable the Primordial Saw.",
-                "Disabling removes the item from the game; requires restart.", "Default: true" })
+        @Configurable.Comment("Default: true")
         public boolean primordialSaw = true;
         @Configurable
-        @Configurable.Comment({ "Enable the Primordial File.",
-                "Disabling removes the item from the game; requires restart.", "Default: true" })
+        @Configurable.Comment("Default: true")
         public boolean primordialFile = true;
         @Configurable
-        @Configurable.Comment({ "Enable the Primordial Knife.",
-                "Disabling removes the item from the game; requires restart.", "Default: true" })
+        @Configurable.Comment("Default: true")
         public boolean primordialKnife = true;
         @Configurable
-        @Configurable.Comment({ "Enable the Primordial Healing Axe.",
-                "Disabling removes the item from the game; requires restart.", "Default: true" })
+        @Configurable.Comment("Default: true")
         public boolean primordialHealingAxe = true;
     }
 }
