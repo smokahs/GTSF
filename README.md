@@ -5,7 +5,7 @@
 # GregTech: Star Foundry
 <a href='https://files.minecraftforge.net'><img alt="forge" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/supported/forge_vector.svg"></a>
 
-A **GTCEu Modern addon**, adding the tools to end all tools! Forge your ne tools at the new Godforged tier, switch mining modes on the fly, and watch them shimmer with a living cosmic shader. A must-have for the late-game GregTech grind!
+A **GTCEu Modern addon**, adding the tools to end all tools!
 
 Minecraft 1.20.1, Forge 47+, GTCEu v7.5.3
 
