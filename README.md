@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="webassets/logo.png" width="200" alt="GregTech: Star Foundry logo"/>
+  <img src="https://raw.githubusercontent.com/smokahs/GTSF/main/webassets/logo.png" width="200" alt="GregTech: Star Foundry logo"/>
 </p>
 
 # GregTech: Star Foundry
@@ -9,8 +9,18 @@ A **GTCEu Modern addon**, adding the tools to end all tools!
 
 Minecraft 1.20.1, Forge 47+, GTCEu v7.5.3
 
-  [![CurseForge Version](https://img.shields.io/curseforge/v/PROJECT_ID?label=CurseForge&color=orange&logo=curseforge&style=for-the-badge)]()
-  [![Modrinth Version](https://img.shields.io/modrinth/v/gtsf?label=Modrinth&color=00AF5C&logo=modrinth&style=for-the-badge)]()
+  [![CurseForge Version](https://img.shields.io/curseforge/v/1599922?label=CurseForge&color=orange&logo=curseforge&style=for-the-badge)](https://www.curseforge.com/minecraft/mc-mods/gregtech-star-foundry)
+  [![CurseForge Downloads](https://img.shields.io/curseforge/dt/1599922?label=Downloads&color=orange&logo=curseforge&style=for-the-badge)](https://www.curseforge.com/minecraft/mc-mods/gregtech-star-foundry)
+
+## Showcase
+
+<p align="center">
+  <a href="https://youtu.be/IXphUH43XDo">
+    <img src="https://img.youtube.com/vi/IXphUH43XDo/hqdefault.jpg" width="480" alt="GregTech: Star Foundry showcase video"/>
+  </a>
+</p>
+
+--------------------------------------
 
 ## Changelog
 
@@ -50,7 +60,7 @@ A YAML config lets you toggle each tool, tune precision mining speed, switch blo
 
 Drop `gtsf-<version>.jar` into `mods/`.
 
-Required: [GregTech CEu: Modern](https://www.curseforge.com/minecraft/mc-mods/gtceu-modern) (7.5.3).
+Required: [GregTech CEu: Modern](https://www.curseforge.com/minecraft/mc-mods/gregtechceu-modern) (7.5.3).
 
 --------------------------------------
 
@@ -62,4 +72,4 @@ Built on **GregTech CEu: Modern** by KilaBash, screret, serenibyss, and the wide
 
 ## Issues
 
-[GitHub issue tracker](https://github.com/smokahs/GregTech-StarFoundry/issues). Include MC+Forge version, Star Foundry version, GregTech CEu version, crash log (if applicable), and `logs/latest.log`.
+[GitHub issue tracker](https://github.com/smokahs/GTSF/issues). Include MC+Forge version, Star Foundry version, GregTech CEu version, crash log (if applicable), and `logs/latest.log`.
